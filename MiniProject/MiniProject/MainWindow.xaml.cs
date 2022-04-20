@@ -24,6 +24,8 @@ namespace MiniProject
     {
         public MainWindow()
         {
+            List<Data> data = DataManager.FetchGDP("annual", "12", "15");
+            
             InitializeComponent();
         }
     }
