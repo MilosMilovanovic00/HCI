@@ -19,7 +19,7 @@ namespace MiniProjekat
         }
         public enum TreasuryInterval
         {
-            daily, 
+            daily,
             weekly,
             monthly
         }

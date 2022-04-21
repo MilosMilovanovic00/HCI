@@ -20,3 +20,58 @@ D:\siit\Projekat\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CoreCom
 D:\siit\Projekat\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CopyComplete
 D:\siit\Projekat\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.exe
 D:\siit\Projekat\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.pdb
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe.config
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.pdb
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.dll
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.dll
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.pdb
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.xml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.pdb
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.xml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.AssemblyReference.cache
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.g.cs
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.g.cs
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.cache
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.lref
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.baml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.g.resources
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.Properties.Resources.resources
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.GenerateResource.cache
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CoreCompileInputs.cache
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.exe
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.pdb
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.g.cs
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.baml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\Styles\DataGrid.baml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.baml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\Themes\LightTheme.baml
+D:\TrecaGodina\Interakcija covek racunar\HCI\MiniProjekat\MiniProjekat\obj\Debug\Assets\Icons.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe.config
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.pdb
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.dll
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.dll
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.pdb
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.xml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.pdb
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.xml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.AssemblyReference.cache
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\Assets\Icons.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\Styles\DataGrid.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\Themes\LightTheme.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.g.cs
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.g.cs
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.g.cs
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.cache
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.lref
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.baml
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.g.resources
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.Properties.Resources.resources
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.GenerateResource.cache
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CoreCompileInputs.cache
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CopyComplete
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.exe
+D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.pdb

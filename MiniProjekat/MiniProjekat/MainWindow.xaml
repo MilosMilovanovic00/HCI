@@ -39,23 +39,20 @@
                 <RowDefinition Height="5*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <RadioButton Content="GDP" Grid.Row="1" Grid.Column="1"></RadioButton>
-            <RadioButton Content="Prinos trezora" Grid.Row="1" Grid.Column="2"></RadioButton>
+            <RadioButton x:Name="GDPRadioButton" GroupName="DataChoice" Content="GDP" Grid.Row="1" Grid.Column="1" Click="GDPRadioButton_Click"></RadioButton>
+            <RadioButton x:Name="TreasuryRadioButton" GroupName="DataChoice" Content="Prinos trezora" Grid.Row="1" Grid.Column="2" Click="TreasuryRadioButton_Click"></RadioButton>
 
             <Label x:Name="ReportTypeLabel" Content="Tip izvestaja" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" HorizontalAlignment="Center"/>
-            <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                <ComboBoxItem Content="Dnevni"></ComboBoxItem>
-                <ComboBoxItem Content="Mesecni"></ComboBoxItem>
-                <ComboBoxItem Content="Godisnji"></ComboBoxItem>
+            <ComboBox x:Name="ReportChoiceComboBox" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
             </ComboBox>
 
             <Label Content="Vremenski period" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Label>
 
             <Label Content="Od" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center"></Label>
-            <DatePicker Grid.Row="8" Grid.Column="1"></DatePicker>
+            <DatePicker x:Name="DateStart" Grid.Row="8" Grid.Column="1"></DatePicker>
 
             <Label Content="Do" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center"></Label>
-            <DatePicker Grid.Row="8" Grid.Column="2"></DatePicker>
+            <DatePicker x:Name="DateEnd" Grid.Row="8" Grid.Column="2"></DatePicker>
 
             <Button Content="Prikazi" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"></Button>
         </Grid>
@@ -71,6 +68,8 @@
             </lvc:CartesianChart>
         </Grid>
 
-        <Button Content="Tabela" Grid.Column="2" Grid.Row="1"></Button>
+        <Button x:Name="ShowTableButton" Content="Tabela" Grid.Column="2" Grid.Row="1"
+                Click="ShowTableForParams"
+                ></Button>
     </Grid>
 </Window>
