@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Web.Script.Serialization;
+using System.ComponentModel;
 
 namespace MiniProjekat
 {
@@ -14,6 +15,7 @@ namespace MiniProjekat
     {
         public enum GDCInterval
         {
+            [Description("Godisnji")]
             annaul,
             quarterly
         }
@@ -30,6 +32,7 @@ namespace MiniProjekat
         public static List<Data> FetchTreasury(string interval, string fromDate, string toDate)
         {
             string QUERY_URL = "https://www.alphavantage.co/query?function=TREASURY_YIELD&interval=" + interval.ToLower() + "&maturity=10year&apikey=" + apiKey;
+            
             return filter(Fetch(QUERY_URL), fromDate, toDate);
         }
         public static List<Data> filter(EconomicIndicatorsData economicIndicatorsData, string fromDate, string toDate)
@@ -50,6 +53,7 @@ namespace MiniProjekat
             {
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 EconomicIndicatorsData data =(EconomicIndicatorsData)js.Deserialize(client.DownloadString(queryUri), typeof(EconomicIndicatorsData));
+               
                 return data;
             }
         }

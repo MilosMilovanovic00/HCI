@@ -5,71 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniProjekat" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Prikaz GDC-a i prinosa Trezora" Height="450" Width="800"
+        x:Name="AppWindow" SizeChanged ="AppWindow_SizeChanged">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="12*"></ColumnDefinition>
-            <ColumnDefinition Width="30*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition x:Name="PickArea" Height="150"></RowDefinition>
+            <RowDefinition x:Name="ChartArea" Height="14*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="OptionsGrid" Grid.RowSpan="2">
+        <Grid x:Name="OptionsGrid" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+         
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
             </Grid.RowDefinitions>
+            <Label VerticalAlignment="Center" Content="Tip podataka" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center"></Label>
+            <RadioButton x:Name="GDPRadioButton" GroupName="DataChoice" Content="GDC" Grid.Row="3" Grid.Column="1" Click="GDPRadioButton_Click"></RadioButton>
+            <RadioButton x:Name="TreasuryRadioButton" GroupName="DataChoice" Content="Prinos trezora" Grid.Row="5" Grid.Column="1" Click="TreasuryRadioButton_Click"></RadioButton>
 
-            <RadioButton x:Name="GDPRadioButton" GroupName="DataChoice" Content="GDP" Grid.Row="1" Grid.Column="1" Click="GDPRadioButton_Click"></RadioButton>
-            <RadioButton x:Name="TreasuryRadioButton" GroupName="DataChoice" Content="Prinos trezora" Grid.Row="1" Grid.Column="2" Click="TreasuryRadioButton_Click"></RadioButton>
-
-            <Label x:Name="ReportTypeLabel" Content="Tip izvestaja" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="ReportChoiceComboBox" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label VerticalAlignment="Center" x:Name="ReportTypeLabel" Content="Tip izvestaja" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Left" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="ReportChoiceComboBox" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center">
             </ComboBox>
 
-            <Label Content="Vremenski period" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Label>
+            <Label VerticalAlignment="Center" Content="Vremenski period" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Label>
 
-            <Label Content="Od" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center"></Label>
-            <DatePicker x:Name="DateStart" Grid.Row="8" Grid.Column="1"></DatePicker>
+            <Label VerticalAlignment="Center" Content="Od" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center"></Label>
+            <DatePicker x:Name="DateStart" Grid.Row="3" Grid.Column="6"  SelectedDateChanged="DateStart_SelectedDateChanged" VerticalAlignment="Center"></DatePicker>
 
-            <Label Content="Do" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center"></Label>
-            <DatePicker x:Name="DateEnd" Grid.Row="8" Grid.Column="2"></DatePicker>
+            <Label VerticalAlignment="Center" Content="Do" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center"></Label>
+            <DatePicker x:Name="DateEnd" Grid.Row="5" Grid.Column="6" SelectedDateChanged="DateEnd_SelectedDateChanged" VerticalAlignment="Center"/>
 
-            <Button Content="Prikazi" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"></Button>
+            <Label VerticalAlignment="Center" Content="Prikazi podataka" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="1" HorizontalAlignment="Center"></Label>
+
+            <Button VerticalAlignment="Center" Content="Prikaži" Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="1" Click="ShowGraph"></Button>
+            <Button VerticalAlignment="Center" x:Name="ShowTableButton" Content="Tabelarni prikaz" Grid.Column="8" Grid.Row="5" Click="ShowTableForParams" IsEnabled="False"></Button>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
+        <Grid Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1">
+            <lvc:CartesianChart x:Name="LineChart" Series="{Binding Path=lineChart.lineSeriesCollection}">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                    <lvc:Axis Title="Procenat"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                    <lvc:Axis Title="Datum" Labels="{Binding Path=lineChart.labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Grid>
 
-        <Button x:Name="ShowTableButton" Content="Tabela" Grid.Column="2" Grid.Row="1"
-                Click="ShowTableForParams"
-                ></Button>
+        <Grid Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1">
+            <lvc:CartesianChart x:Name="ColumnChart" Series="{Binding Path=lineChart.columnSeriesCollection}">
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Procenat"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Datum" Labels="{Binding Path=lineChart.labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </Grid>
+
+
+
     </Grid>
 </Window>

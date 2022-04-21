@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniProjekat"
         mc:Ignorable="d"
-        Title="TableInfo" Height="450" Width="800">
-
+        Title="Tabelarni prikaz" Height="450" Width="800">
     <Grid>
         <ScrollViewer>
             <DataGrid 
@@ -28,15 +27,6 @@
                             Binding="{Binding Value}">
                     </DataGridTextColumn>
                 </DataGrid.Columns>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <MultiBinding Converter="{StaticResource MaxValueConverter}">
-                                <Binding Path="Value"/>
-                            </MultiBinding>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
             </DataGrid>
         </ScrollViewer>
     </Grid>
