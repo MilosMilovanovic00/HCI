@@ -13,19 +13,6 @@ namespace MiniProjekat
 {
     public class DataManager
     {
-        public enum GDCInterval
-        {
-            [Description("Godisnji")]
-            annaul,
-            quarterly
-        }
-        public enum TreasuryInterval
-        {
-            daily,
-            weekly,
-            monthly
-        }
-
         private static readonly string apiKey = "VWY979IKAYWIHUJP";
         public DataManager() { }
 
@@ -37,8 +24,11 @@ namespace MiniProjekat
         }
         public static List<Data> filter(EconomicIndicatorsData economicIndicatorsData, string fromDate, string toDate)
         {
-            List<Data> filteredList = new List<Data>();
-            return economicIndicatorsData.Data.Where(x => x.InRange(fromDate, toDate)).ToList();
+           List<Data> filteredList = economicIndicatorsData.Data.Where(x => x != null).ToList();
+            if (filteredList.Count == 0)
+                return null;
+            return filteredList.Where(x => x.InRange(fromDate, toDate)).ToList();
+
         }
         public static List<Data> FetchGDP(string interval, string fromDate, string toDate)
         {

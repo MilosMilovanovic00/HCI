@@ -13,6 +13,8 @@ namespace MiniProjekat
         public string Unit { get; set; }
         public List<Data> Data { get; set; }
 
-        public EconomicIndicatorsData() { }
+        public EconomicIndicatorsData() {
+            Data = new List<Data>();
+        }
     }
 }

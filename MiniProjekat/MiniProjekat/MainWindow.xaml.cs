@@ -65,7 +65,7 @@ namespace MiniProjekat
         {
             if (GDPRadioButton.IsChecked == true || TreasuryRadioButton.IsChecked == true)
             {
-                if (DateStart.Text != "" && DateEnd.Text != "" && getReportInterval(ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1)) != null)
+                if (DateStart.Text != "" && DateEnd.Text != "" && ReportChoiceComboBox.SelectedItem != null)
                 {
                     return true;
                 }
@@ -80,6 +80,16 @@ namespace MiniProjekat
             if (AreParametersValid())
             {
                 FetchData();
+                if (data == null)
+                {
+                    MessageBox.Show("Komunikacija sa API-jem nije uspostavljena, pokušajte ponovo sa istim parametrima.", "Greška", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return;
+                }
+                else if (data.Count == 0)
+                {
+                    MessageBox.Show("Ne postoje podaci za odabrane parametre.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
             }
             else
             {
@@ -95,24 +105,43 @@ namespace MiniProjekat
                 values.Add(Double.Parse(d.Value));
                 lineChart.labels.Add(d.Date);
             }
-
-            lineChart.lineSeriesCollection.Add(new LineSeries()
+            if (data.Count > 1)
             {
-                Title = "Linijski graf",
-                Values = values,
-                Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink: Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),                                                                                     
-                PointGeometry = DefaultGeometries.Diamond,
-                PointGeometrySize = 8,
-            });
+                lineChart.lineSeriesCollection.Add(new LineSeries()
+                {
+                    Title = "Vrednost",
+                    Values = values,
+                    Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink: Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),                                                                                     
+                    PointGeometry = DefaultGeometries.Diamond,
+                    PointGeometrySize = 8,
+                });
 
-            lineChart.columnSeriesCollection.Add(new ColumnSeries()
-            {
-                Title = "Stubičasti graf",
-                Values = values,
-                Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),
-                PointGeometry = DefaultGeometries.Diamond
+                lineChart.columnSeriesCollection.Add(new ColumnSeries()
+                {
+                    Title = "Vrednost",
+                    Values = values,
+                    Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),
+                    PointGeometry = DefaultGeometries.Diamond
             
-            });
+                });
+            }
+            else
+            {
+                lineChart.lineSeriesCollection.Add(new LineSeries()
+                {
+                    Title = "Vrednost",
+                    Values = values,              
+                    PointGeometry = DefaultGeometries.Diamond,
+                    PointGeometrySize = 8,
+                });
+
+                lineChart.columnSeriesCollection.Add(new ColumnSeries()
+                {
+                    Title = "Vrednost",
+                    Values = values,                  
+                    PointGeometry = DefaultGeometries.Diamond
+                });
+            }
 
             DataContext = this;
 
@@ -133,19 +162,12 @@ namespace MiniProjekat
             if (GDPRadioButton.IsChecked == true)
             {
                 data = DataManager.FetchGDP(interval, startDate.ToString(), endDate.ToString());
-                
-
             }
             else if (TreasuryRadioButton.IsChecked == true)
             {
                 data = DataManager.FetchTreasury(interval, startDate.ToString(), endDate.ToString());
                 
             }
-            if (data.Count() < 0) MessageBox.Show("Ne postoje podaci za odabrane parametre.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-
-
-
-
         }
 
         private void ShowTableForParams(object sender, RoutedEventArgs e)
@@ -158,7 +180,7 @@ namespace MiniProjekat
             }
             else
             {
-                MessageBox.Show("Ne postoje podaci za odabrane parametre.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ne postoje podaci za odabrane parametre.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         private void GDPRadioButton_Click(object sender, RoutedEventArgs e)
@@ -190,17 +212,23 @@ namespace MiniProjekat
 
         private void DateStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DateEnd.SelectedDate != null && DateStart.SelectedDate !=null)
+            checkRangeChangeEndDate();
+
+        }
+
+        private void checkRangeChangeEndDate()
+        {
+            if (DateEnd.SelectedDate != null && DateStart.SelectedDate != null)
             {
                 var start = (DateTime)DateStart.SelectedDate;
                 var end = (DateTime)DateEnd.SelectedDate;
-                if (DateEnd.SelectedDate < DateStart.SelectedDate )
+                if (DateEnd.SelectedDate < DateStart.SelectedDate)
                 {
 
                     DateEnd.SelectedDate = start.AddDays(1);
                     MessageBox.Show("Početni datum mora biti raniji od krajnjeg datuma.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-                if (ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "dnevni")
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "dnevni")
                 {
 
                     if (end - start > TimeSpan.FromDays(60))
@@ -209,23 +237,36 @@ namespace MiniProjekat
                         MessageBox.Show("Dnevni izveštaj može prikazivati podatke u vremenskom periodu od najviše 60 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
-                else if (ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "nedeljni")
+                {
+
+                    if (end - start > TimeSpan.FromDays(120))
+                    {
+                        DateEnd.SelectedDate = start.AddDays(120);
+                        MessageBox.Show("Dnevni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
                 {
 
                     if (end - start > TimeSpan.FromDays(180))
                     {
-                        DateEnd.SelectedDate = end.AddDays(180);
+                        DateEnd.SelectedDate = start.AddDays(180);
                         MessageBox.Show("Mesečni izveštaj može prikazivati podatke u vremenskom periodu od najviše 180 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
 
             }
-            
         }
 
         private void DateEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            checkRangeChangeStartDate();
 
+        }
+
+        private void checkRangeChangeStartDate()
+        {
             if (DateEnd.SelectedDate != null && DateStart.SelectedDate != null)
             {
                 var start = (DateTime)DateStart.SelectedDate;
@@ -235,9 +276,18 @@ namespace MiniProjekat
                     DateStart.SelectedDate = end.AddDays(-1);
                     MessageBox.Show("Početni datum mora biti raniji od krajnjeg datuma.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-                if (ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "dnevni")
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "nedeljni")
                 {
-                    
+
+                    if (end - start > TimeSpan.FromDays(120))
+                    {
+                        DateStart.SelectedDate = end.AddDays(-120);
+                        MessageBox.Show("Dnevni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "dnevni")
+                {
+
                     if (end - start > TimeSpan.FromDays(60))
                     {
                         DateStart.SelectedDate = end.AddDays(-60);
@@ -245,7 +295,7 @@ namespace MiniProjekat
                     }
                 }
 
-                else if (ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
+                else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
                 {
 
                     if (end - start > TimeSpan.FromDays(180))
@@ -255,7 +305,6 @@ namespace MiniProjekat
                     }
                 }
             }
-
         }
 
         private void AppWindow_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -265,6 +314,11 @@ namespace MiniProjekat
                 PickArea.Height = new System.Windows.GridLength(150);           
             }
           
+        }
+
+        private void ReportChoiceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            checkRangeChangeEndDate();
         }
     }
 }

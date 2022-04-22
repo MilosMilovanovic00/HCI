@@ -75,3 +75,31 @@ D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniP
 D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CopyComplete
 D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.exe
 D:\FTN\Semestar_6\Interakcija_čovek_računar\Projekat v2\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.pdb
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe.config
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.exe
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\MiniProjekat.pdb
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.dll
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.dll
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.pdb
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.xml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.pdb
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\bin\Debug\LiveCharts.Wpf.xml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csprojAssemblyReference.cache
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\Assets\Icons.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\Styles\DataGrid.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\Themes\LightTheme.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.g.cs
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.g.cs
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.g.cs
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.cache
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat_MarkupCompile.lref
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\App.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MainWindow.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\TableInfo.baml
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.g.resources
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.Properties.Resources.resources
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.GenerateResource.cache
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CoreCompileInputs.cache
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.csproj.CopyComplete
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.exe
+D:\siit\HCI\Projekat\HCI\MiniProjekat\MiniProjekat\obj\Debug\MiniProjekat.pdb

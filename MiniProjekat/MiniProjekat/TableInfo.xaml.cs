@@ -23,28 +23,31 @@ namespace MiniProjekat
             MinValue = data.Min(d => d.Value);
             InitializeComponent();
 
-            var st = new Style();
-            st.TargetType = typeof(DataGridRow);
-            var AliceBlueSetter = new Setter(DataGridRow.BackgroundProperty, Brushes.LightGreen);
-            var RedSetter = new Setter(DataGridRow.BackgroundProperty, Brushes.LightPink);
-
-            var dt1 = new DataTrigger()
+            if (data.Count > 1)
             {
-                Value = MaxValue,
-                Binding = new Binding("Value")
-            };
-            var dt2 = new DataTrigger()
-            {
-                Value = MinValue,
-                Binding = new Binding("Value")
-            };
-            dt1.Setters.Add(AliceBlueSetter);
-            st.Triggers.Add(dt1);
+                var st = new Style();
+                st.TargetType = typeof(DataGridRow);
+                var AliceBlueSetter = new Setter(DataGridRow.BackgroundProperty, Brushes.LightGreen);
+                var RedSetter = new Setter(DataGridRow.BackgroundProperty, Brushes.LightPink);
 
-            dt2.Setters.Add(RedSetter);
-            st.Triggers.Add(dt2);
+                var dt1 = new DataTrigger()
+                {
+                    Value = MaxValue,
+                    Binding = new Binding("Value")
+                };
+                var dt2 = new DataTrigger()
+                {
+                    Value = MinValue,
+                    Binding = new Binding("Value")
+                };
+                dt1.Setters.Add(AliceBlueSetter);
+                st.Triggers.Add(dt1);
 
-            TableDataGrid.RowStyle = st;
+                dt2.Setters.Add(RedSetter);
+                st.Triggers.Add(dt2);
+
+                TableDataGrid.RowStyle = st;
+            }
         }
     }
 }

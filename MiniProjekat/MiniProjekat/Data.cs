@@ -14,8 +14,8 @@ namespace MiniProjekat
         public Data() {}
         public bool InRange(string fromDateStr, string toDateStr)
         {
-            DateTime fromDate = DateTime.Parse(fromDateStr); //treba biti u formi yyyy-mm-dd
-            DateTime toDate = DateTime.Parse(toDateStr); //treba biti u formi yyyy-mm-dd
+            DateTime fromDate = DateTime.Parse(fromDateStr);
+            DateTime toDate = DateTime.Parse(toDateStr);
             DateTime date = DateTime.Parse(Date);
 
             return date >= fromDate && date < toDate; ;
