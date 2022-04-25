@@ -173,6 +173,11 @@ namespace MiniProjekat
         private void ShowTableForParams(object sender, RoutedEventArgs e)
         {
 
+            if (data == null) {
+                MessageBox.Show("Greška u komunikaciji sa API-jem. Pritisnite prikaži opet, pre nego što želite da pogledate tabelarni prikaz.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (data.Count() > 0)
             {
                 TableInfo tableInfo = new TableInfo(data);
@@ -243,7 +248,7 @@ namespace MiniProjekat
                     if (end - start > TimeSpan.FromDays(120))
                     {
                         DateEnd.SelectedDate = start.AddDays(120);
-                        MessageBox.Show("Dnevni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show("Nedeljni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
                 else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
@@ -282,7 +287,7 @@ namespace MiniProjekat
                     if (end - start > TimeSpan.FromDays(120))
                     {
                         DateStart.SelectedDate = end.AddDays(-120);
-                        MessageBox.Show("Dnevni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show("Nedeljni izveštaj može prikazivati podatke u vremenskom periodu od najviše 120 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
                 else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "dnevni")
