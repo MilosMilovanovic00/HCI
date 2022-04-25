@@ -34,7 +34,7 @@ namespace MiniProjekat
 
         private string getReportInterval(String reportChoice)
         {
-            
+
             if (reportChoice.ToLower() == "godišnji")
             {
                 return "annual";
@@ -43,7 +43,7 @@ namespace MiniProjekat
             {
                 return "monthly";
             }
-            else if(reportChoice.ToLower() == "tromesečni")
+            else if (reportChoice.ToLower() == "tromesečni")
             {
                 return "quarterly";
             }
@@ -63,14 +63,33 @@ namespace MiniProjekat
 
         private bool AreParametersValid()
         {
-            if (GDPRadioButton.IsChecked == true || TreasuryRadioButton.IsChecked == true)
+
+            String message = "Sva polja moraju biti popunjena.";
+
+
+            if (GDPRadioButton.IsChecked != true && TreasuryRadioButton.IsChecked != true)
             {
-                if (DateStart.Text != "" && DateEnd.Text != "" && ReportChoiceComboBox.SelectedItem != null)
-                {
-                    return true;
-                }
+                message += " Morate izabrati tip podataka.";
             }
-            MessageBox.Show("Sva polja moraju biti popunjena.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (DateStart.Text == "")
+            {
+                message += " Morate izabrati početni datum.";
+            }
+            if (DateEnd.Text == "")
+            {
+                message += " Morate izabrati krajnji datum.";
+            }
+            if (ReportChoiceComboBox.SelectedItem == null)
+            {
+                message += " Morate izabrati tip izveštaja.";
+            }
+
+            if (message == "Sva polja moraju biti popunjena.")
+            {
+                return true;
+            }
+
+            MessageBox.Show(message, "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             return false;
 
         }
@@ -100,7 +119,7 @@ namespace MiniProjekat
 
             ChartValues<double> values = new ChartValues<double>();
 
-            foreach ( Data d in data)
+            foreach (Data d in data)
             {
                 values.Add(Double.Parse(d.Value));
                 lineChart.labels.Add(d.Date);
@@ -111,7 +130,7 @@ namespace MiniProjekat
                 {
                     Title = "Vrednost",
                     Values = values,
-                    Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink: Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),                                                                                     
+                    Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),
                     PointGeometry = DefaultGeometries.Diamond,
                     PointGeometrySize = 8,
                 });
@@ -122,7 +141,7 @@ namespace MiniProjekat
                     Values = values,
                     Configuration = new CartesianMapper<double>().Y(value => value).Stroke(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.CornflowerBlue).Fill(value => (value == values.Max()) ? Brushes.LightGreen : (value == values.Min()) ? Brushes.LightPink : Brushes.AliceBlue),
                     PointGeometry = DefaultGeometries.Diamond
-            
+
                 });
             }
             else
@@ -130,7 +149,7 @@ namespace MiniProjekat
                 lineChart.lineSeriesCollection.Add(new LineSeries()
                 {
                     Title = "Vrednost",
-                    Values = values,              
+                    Values = values,
                     PointGeometry = DefaultGeometries.Diamond,
                     PointGeometrySize = 8,
                 });
@@ -138,14 +157,14 @@ namespace MiniProjekat
                 lineChart.columnSeriesCollection.Add(new ColumnSeries()
                 {
                     Title = "Vrednost",
-                    Values = values,                  
+                    Values = values,
                     PointGeometry = DefaultGeometries.Diamond
                 });
             }
 
             DataContext = this;
 
-            var lineChartObject = (CartesianChart) this.FindName("LineChart");
+            var lineChartObject = (CartesianChart)this.FindName("LineChart");
             lineChartObject.HideLegend();
 
             ShowTableButton.IsEnabled = true;
@@ -167,14 +186,15 @@ namespace MiniProjekat
             else if (TreasuryRadioButton.IsChecked == true)
             {
                 data = DataManager.FetchTreasury(interval, startDate.ToString(), endDate.ToString());
-                
+
             }
         }
 
         private void ShowTableForParams(object sender, RoutedEventArgs e)
         {
 
-            if (data == null) {
+            if (data == null)
+            {
                 MessageBox.Show("Greška u komunikaciji sa API-jem. Pritisnite prikaži opet, pre nego što želite da pogledate tabelarni prikaz.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
@@ -255,10 +275,10 @@ namespace MiniProjekat
                 else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
                 {
 
-                    if (end - start > TimeSpan.FromDays(180))
+                    if (end - start > TimeSpan.FromDays(366))
                     {
-                        DateEnd.SelectedDate = start.AddDays(180);
-                        MessageBox.Show("Mesečni izveštaj može prikazivati podatke u vremenskom periodu od najviše 180 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        DateEnd.SelectedDate = start.AddDays(366);
+                        MessageBox.Show("Mesečni izveštaj može prikazivati podatke u vremenskom periodu od najviše 366 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
 
@@ -304,10 +324,10 @@ namespace MiniProjekat
                 else if (ReportChoiceComboBox.SelectedItem != null && ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1).ToLower() == "mesečni")
                 {
 
-                    if (end - start > TimeSpan.FromDays(180))
+                    if (end - start > TimeSpan.FromDays(366))
                     {
-                        DateStart.SelectedDate = end.AddDays(-180);
-                        MessageBox.Show("Mesečni izveštaj može prikazivati podatke u vremenskom periodu od najviše 180 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        DateStart.SelectedDate = end.AddDays(-366);
+                        MessageBox.Show("Mesečni izveštaj može prikazivati podatke u vremenskom periodu od najviše 366 dana.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }
@@ -317,9 +337,19 @@ namespace MiniProjekat
         {
             if (AppWindow.ActualHeight > 550)
             {
-                PickArea.Height = new System.Windows.GridLength(150);           
+                PickArea.Height = new System.Windows.GridLength(150);
             }
-          
+
+            if (AppWindow.ActualWidth < 900)
+            {
+                WarningLabel.Content = "Zbog smanjene veličine moguće je da se podaci u stubičastom grafiku ne vide. Povećajte veličinu prozora.";
+            }
+            else
+            {
+                WarningLabel.Content = "";
+            }
+
+
         }
 
         private void ReportChoiceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

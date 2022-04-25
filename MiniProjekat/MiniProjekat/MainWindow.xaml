@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniProjekat" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Prikaz GDP-a i prinosa Trezora" Height="450" Width="800"
+        Title="Prikaz GDP-a i prinosa Trezora" Height="600" Width="1000"
         x:Name="AppWindow" SizeChanged ="AppWindow_SizeChanged">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -42,7 +42,10 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label VerticalAlignment="Center" Content="Tip podataka" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center"></Label>
+
+            <Label x:Name="WarningLabel" Grid.Row="0" Foreground="#bd4200" Grid.Column="1"  HorizontalAlignment="Center" Grid.ColumnSpan="8"></Label>
+
+            <Label VerticalAlignment="Center" Content="Tip podataka"  Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="1" HorizontalAlignment="Center"></Label>
             <RadioButton x:Name="GDPRadioButton" GroupName="DataChoice" Content="GDP" Grid.Row="3" Grid.Column="1" Click="GDPRadioButton_Click"></RadioButton>
             <RadioButton x:Name="TreasuryRadioButton" GroupName="DataChoice" Content="Prinos trezora" Grid.Row="5" Grid.Column="1" Click="TreasuryRadioButton_Click"></RadioButton>
 
