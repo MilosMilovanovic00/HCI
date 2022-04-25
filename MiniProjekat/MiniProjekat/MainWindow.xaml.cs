@@ -155,6 +155,7 @@ namespace MiniProjekat
 
         private void FetchData()
         {
+            ShowTableButton.IsEnabled = false;
             DateTime startDate = DateTime.Parse(DateStart.Text);
             DateTime endDate = DateTime.Parse(DateEnd.Text);
             string interval = getReportInterval(ReportChoiceComboBox.SelectedItem.ToString().Split(':')[1].Substring(1));
